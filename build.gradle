@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    compile group: 'org.jdbi', name: 'jdbi3-sqlobject', version: '3.17.0'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.18'
+
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
+        exceptionFormat = "full"
+    }
+}
